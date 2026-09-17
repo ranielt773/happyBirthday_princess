@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Your Surprise 💗</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Segoe UI", sans-serif;
+            overflow-x: hidden;
+
+            /* PURPLE THEME */
+            background:
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(255, 255, 255, 0.8),
+                    transparent 25%
+                ),
+                radial-gradient(
+                    circle at 80% 30%,
+                    rgba(196, 181, 253, 0.5),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    #ddd6fe,
+                    #c4b5fd,
+                    #e9d5ff
+                );
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 25px;
+        }
+
+        /* =========================
+           HEART RAIN
+        ========================== */
+
+        .heart {
+            position: fixed;
+            top: -30px;
+
+            /* PURPLE */
+            color: rgba(124, 58, 237, 0.55);
+
+            font-size: 18px;
+            pointer-events: none;
+            animation: fall linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes fall {
+
+            0% {
+                transform:
+                    translateY(-30px)
+                    rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            100% {
+                transform:
+                    translateY(110vh)
+                    rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* =========================
+           MAIN CARD
+        ========================== */
+
+        .main-card {
+            width: min(900px, 100%);
+            padding: 45px 35px;
+            border-radius: 35px;
+
+            background:
+                rgba(255, 255, 255, 0.55);
+
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.75);
+
+            /* PURPLE SHADOW */
+            box-shadow:
+                0 25px 60px
+                rgba(109, 40, 217, 0.18),
+                inset 0 1px 1px
+                rgba(255, 255, 255, 0.8);
+
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            animation: cardAppear 0.8s ease;
+        }
+
+        @keyframes cardAppear {
+
+            from {
+                opacity: 0;
+                transform:
+                    translateY(25px)
+                    scale(0.96);
+            }
+
+            to {
+                opacity: 1;
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+        }
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        .emoji {
+            font-size: 65px;
+            margin-bottom: 8px;
+            animation:
+                floating
+                2.5s
+                ease-in-out
+                infinite;
+        }
+
+        @keyframes floating {
+
+            0%,
+            100% {
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+                transform:
+                    translateY(-8px);
+            }
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 42px;
+            font-weight: 800;
+
+            /* PURPLE */
+            color: #7c3aed;
+        }
+
+        .subtitle {
+            margin-top: 8px;
+
+            /* DARK PURPLE */
+            color: #6d28d9;
+
+            font-size: 18px;
+        }
+
+        .message {
+            margin: 25px auto 35px;
+            max-width: 600px;
+
+            /* PURPLE-GRAY */
+            color: #5b4b6b;
+
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           SURPRISE OPTIONS
+        ========================== */
+
+        .choices {
+            display: grid;
+            grid-template-columns:
+                repeat(3, 1fr);
+            gap: 22px;
+            margin-top: 25px;
+        }
+
+        .choice {
+            border: none;
+            cursor: pointer;
+
+            padding: 28px 20px;
+            border-radius: 25px;
+
+            background:
+                rgba(255, 255, 255, 0.72);
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.9);
+
+            /* PURPLE SHADOW */
+            box-shadow:
+                0 12px 25px
+                rgba(109, 40, 217, 0.12);
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease,
+                background 0.25s ease;
+
+            /* PURPLE TEXT */
+            color: #5b21b6;
+        }
+
+        .choice:hover {
+            transform:
+                translateY(-8px);
+
+            background:
+                rgba(255, 255, 255, 0.9);
+
+            box-shadow:
+                0 20px 35px
+                rgba(109, 40, 217, 0.2);
+        }
+
+        .choice:active {
+            transform:
+                scale(0.96);
+        }
+
+        .choice-icon {
+            font-size: 55px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .choice-title {
+            font-size: 21px;
+            font-weight: 700;
+
+            /* PURPLE */
+            color: #7c3aed;
+        }
+
+        .choice-description {
+            font-size: 14px;
+            margin-top: 8px;
+            line-height: 1.5;
+
+            /* SOFT PURPLE */
+            color: #75647f;
+        }
+
+        .choice-arrow {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 8px 17px;
+            border-radius: 20px;
+
+            /* PURPLE */
+            background: #a78bfa;
+
+            color: white;
+
+            font-size: 13px;
+            font-weight: 600;
+            transition: 0.25s ease;
+        }
+
+        .choice:hover .choice-arrow {
+
+            /* DARKER PURPLE */
+            background: #7c3aed;
+
+            transform:
+                translateX(3px);
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        .bottom-message {
+            margin-top: 35px;
+            font-size: 14px;
+
+            /* PURPLE */
+            color: #7c6490;
+        }
+
+        .back-button {
+            margin-top: 20px;
+            border: none;
+            background: transparent;
+
+            /* PURPLE */
+            color: #7c3aed;
+
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        .back-button:hover {
+
+            /* DARKER PURPLE */
+            color: #6d28d9;
+
+            transform:
+                translateX(-3px);
+        }
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 700px) {
+
+            body {
+                padding: 15px;
+            }
+
+            .main-card {
+                padding: 35px 20px;
+                border-radius: 28px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .emoji {
+                font-size: 55px;
+            }
+
+            .subtitle {
+                font-size: 16px;
+            }
+
+            .message {
+                font-size: 15px;
+            }
+
+            .choices {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .choice {
+                padding: 23px 18px;
+            }
+
+            .choice-icon {
+                font-size: 48px;
+                margin-bottom: 8px;
+            }
+
+            .choice-description {
+                max-width: 300px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- HEART RAIN -->
+
+    <div id="hearts"></div>
+
+    <main class="main-card">
+
+        <!-- HEADER -->
+
+        <div class="emoji">
+            🎉
+        </div>
+
+        <h1>
+            You Unlocked It! 💗
+        </h1>
+
+        <div class="subtitle">
+            Your birthday surprises are waiting...
+        </div>
+
+        <p class="message">
+
+            You made it! 💕
+
+            <br>
+
+            Now, choose what you want to open first.
+
+            <br>
+
+            I hope each one makes your day a little more special. 🥰
+
+        </p>
+
+
+        <!-- THREE CHOICES -->
+
+        <div class="choices">
+
+            <!-- CAKE -->
+
+            <button
+                class="choice"
+                onclick="goToPage('cake.html')"
+            >
+
+                <span class="choice-icon">
+                    🎂
+                </span>
+
+                <div class="choice-title">
+                    Birthday Cake
+                </div>
+
+                <div class="choice-description">
+                    A little birthday cake made especially for you. 🎂💗
+                </div>
+
+                <span class="choice-arrow">
+                    Open →
+                </span>
+
+            </button>
+
+
+            <!-- SURPRISE BOX -->
+
+            <button
+                class="choice"
+                onclick="goToPage('surprise.html')"
+            >
+
+                <span class="choice-icon">
+                    🎁
+                </span>
+
+                <div class="choice-title">
+                    Surprise Box
+                </div>
+
+                <div class="choice-description">
+                    There's something waiting inside this little box. 💜
+                </div>
+
+                <span class="choice-arrow">
+                    Open →
+                </span>
+
+            </button>
+
+
+            <!-- LETTER -->
+
+            <button
+                class="choice"
+                onclick="goToPage('letter.html')"
+            >
+
+                <span class="choice-icon">
+                    💌
+                </span>
+
+                <div class="choice-title">
+                    A Letter For You
+                </div>
+
+                <div class="choice-description">
+                    Something I wrote especially for you. 💕
+                </div>
+
+                <span class="choice-arrow">
+                    Open →
+                </span>
+
+            </button>
+
+        </div>
+
+
+        <div class="bottom-message">
+            Made with love, just for you 💗
+        </div>
+
+
+        <button
+            class="back-button"
+            onclick="goBack()"
+        >
+            ← Back to Lock
+        </button>
+
+    </main>
+
+
+    <script>
+
+        /* =========================
+           PAGE NAVIGATION
+        ========================== */
+
+        function goToPage(page) {
+
+            const card =
+                document.querySelector(
+                    ".main-card"
+                );
+
+            card.style.transition =
+                "0.4s ease";
+
+            card.style.opacity =
+                "0";
+
+            card.style.transform =
+                "scale(0.96) translateY(15px)";
+
+            setTimeout(
+                () => {
+
+                    window.location.href =
+                        page;
+
+                },
+                400
+            );
+        }
+
+
+        function goBack() {
+
+            window.location.href =
+                "index.html";
+        }
+
+
+        /* =========================
+           HEART RAIN
+        ========================== */
+
+        const heartsContainer =
+            document.getElementById(
+                "hearts"
+            );
+
+        const heartSymbols = [
+            "💜",
+            "💟",
+            "💜",
+            "🪻",
+            "♡"
+        ];
+
+        function createHeart() {
+
+            const heart =
+                document.createElement(
+                    "div"
+                );
+
+            heart.classList.add(
+                "heart"
+            );
+
+            heart.innerHTML =
+                heartSymbols[
+                    Math.floor(
+                        Math.random() *
+                        heartSymbols.length
+                    )
+                ];
+
+            heart.style.left =
+                Math.random() * 100 + "vw";
+
+            heart.style.fontSize =
+                (12 + Math.random() * 16)
+                + "px";
+
+            heart.style.animationDuration =
+                (5 + Math.random() * 6)
+                + "s";
+
+            heart.style.animationDelay =
+                Math.random() * 2
+                + "s";
+
+            heartsContainer.appendChild(
+                heart
+            );
+
+            setTimeout(
+                () => {
+                    heart.remove();
+                },
+                12000
+            );
+        }
+
+
+        setInterval(
+            createHeart,
+            350
+        );
+
+
+        /* Initial hearts */
+
+        for (
+            let i = 0;
+            i < 12;
+            i++
+        ) {
+
+            setTimeout(
+                createHeart,
+                i * 200
+            );
+        }
+
+    </script>
+
+</body>
+
+</html>

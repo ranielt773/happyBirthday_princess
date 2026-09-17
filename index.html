@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday 💗</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            min-height: 100%;
+        }
+
+        body {
+            min-height: 100vh;
+            overflow-x: hidden;
+            overflow-y: auto;
+            font-family: Arial, sans-serif;
+
+            /* PURPLE THEME */
+            background:
+                linear-gradient(
+                    135deg,
+                    #c4b5fd 0%,
+                    #e9d5ff 50%,
+                    #c084fc 100%
+                );
+        }
+
+        /* =====================================================
+           HEART RAIN
+        ===================================================== */
+
+        #heartContainer {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .heart {
+            position: fixed;
+            top: -50px;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 20px;
+            pointer-events: none;
+
+            animation:
+                fall
+                linear
+                forwards;
+
+            z-index: 0;
+        }
+
+        @keyframes fall {
+            0% {
+                transform:
+                    translateY(-50px)
+                    rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            100% {
+                transform:
+                    translateY(110vh)
+                    rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* =====================================================
+           MAIN AREA
+        ===================================================== */
+
+        main {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            min-height: 100vh;
+            height: auto;
+
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+
+            padding:
+                30px 15px 40px;
+        }
+
+        /* =====================================================
+           GLASS CARD
+        ===================================================== */
+
+        .glass-card {
+            width: 100%;
+            max-width: 430px;
+
+            background:
+                rgba(255, 255, 255, 0.38);
+
+            backdrop-filter:
+                blur(15px);
+
+            -webkit-backdrop-filter:
+                blur(15px);
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.65);
+
+            /* PURPLE SHADOW */
+            box-shadow:
+                0 20px 50px
+                rgba(109, 40, 217, 0.25);
+
+            border-radius: 28px;
+
+            padding:
+                25px 22px 28px;
+
+            text-align: center;
+        }
+
+        /* =====================================================
+           CONTENT
+        ===================================================== */
+
+        #birthdayContent {
+            width: 100%;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        .birthday-icon {
+            font-size: 45px;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .birthday-title {
+            font-size: 36px;
+            line-height: 1.1;
+            font-weight: bold;
+
+            /* PURPLE */
+            color:
+                #7c3aed;
+
+            margin:
+                0 0 6px;
+
+            text-align: center;
+        }
+
+        .birthday-subtitle {
+            /* PURPLE */
+            color:
+                #581c87;
+
+            font-size: 16px;
+
+            margin:
+                0 0 16px;
+
+            text-align: center;
+        }
+
+        /* =====================================================
+           MESSAGE
+        ===================================================== */
+
+        .intro-box {
+            width: 100%;
+
+            background:
+                rgba(255, 255, 255, 0.40);
+
+            border-radius: 16px;
+
+            padding:
+                12px 13px;
+
+            margin-bottom:
+                17px;
+
+            text-align: center;
+        }
+
+        .intro-box p {
+            margin: 0;
+
+            color:
+                #374151;
+
+            font-size: 13px;
+            line-height: 1.5;
+
+            text-align: center;
+        }
+
+        .intro-box strong {
+            /* PURPLE */
+            color:
+                #7c3aed;
+        }
+
+        /* =====================================================
+           PATTERN TITLE
+        ===================================================== */
+
+        .unlock-title {
+            margin:
+                0 0 4px;
+
+            /* PURPLE */
+            color:
+                #6d28d9;
+
+            font-size: 18px;
+            font-weight: bold;
+
+            text-align: center;
+        }
+
+        .unlock-description {
+            margin: 0;
+
+            color:
+                #4b5563;
+
+            font-size: 13px;
+
+            text-align: center;
+        }
+
+        /* =====================================================
+           PATTERN
+        ===================================================== */
+
+        .pattern-container {
+            position: relative;
+
+            width: 270px;
+            height: 270px;
+
+            margin:
+                15px auto 0;
+
+            touch-action: none;
+            user-select: none;
+            -webkit-user-select: none;
+
+            flex-shrink: 0;
+        }
+
+        .pattern-svg {
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 270px;
+            height: 270px;
+
+            pointer-events: none;
+
+            z-index: 1;
+        }
+
+        .pattern-line {
+            fill: none;
+
+            /* PURPLE */
+            stroke:
+                #8b5cf6;
+
+            stroke-width: 7;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+
+            opacity: 0.9;
+        }
+
+        /* =====================================================
+           DOT
+           NUMBERS REMOVED
+        ===================================================== */
+
+        .dot {
+            position: absolute;
+
+            width: 48px;
+            height: 48px;
+
+            margin: 0;
+            padding: 0;
+
+            border-radius: 50%;
+
+            transform:
+                translate(-50%, -50%);
+
+            background:
+                rgba(255, 255, 255, 0.9);
+
+            /* PURPLE */
+            border:
+                3px solid
+                #8b5cf6;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.15s ease,
+                background 0.15s ease,
+                box-shadow 0.15s ease;
+
+            z-index: 2;
+        }
+
+        /* =====================================================
+           HIDE DOT NUMBERS
+        ===================================================== */
+
+        .dot-number {
+            display: none;
+        }
+
+        /* =====================================================
+           DOT POSITIONS
+        ===================================================== */
+
+        .dot[data-number="1"] {
+            left: 24px;
+            top: 24px;
+        }
+
+        .dot[data-number="2"] {
+            left: 135px;
+            top: 24px;
+        }
+
+        .dot[data-number="3"] {
+            left: 246px;
+            top: 24px;
+        }
+
+        .dot[data-number="4"] {
+            left: 24px;
+            top: 135px;
+        }
+
+        .dot[data-number="5"] {
+            left: 135px;
+            top: 135px;
+        }
+
+        .dot[data-number="6"] {
+            left: 246px;
+            top: 135px;
+        }
+
+        .dot[data-number="7"] {
+            left: 24px;
+            top: 246px;
+        }
+
+        .dot[data-number="8"] {
+            left: 135px;
+            top: 246px;
+        }
+
+        .dot[data-number="9"] {
+            left: 246px;
+            top: 246px;
+        }
+
+        /* =====================================================
+           ACTIVE DOT
+        ===================================================== */
+
+        .dot.active {
+            /* PURPLE */
+            background:
+                #8b5cf6;
+
+            transform:
+                translate(-50%, -50%)
+                scale(1.15);
+
+            /* PURPLE GLOW */
+            box-shadow:
+                0 0 20px
+                rgba(139, 92, 246, 0.7);
+        }
+
+        /* =====================================================
+           SHAKE
+        ===================================================== */
+
+        .shake {
+            animation:
+                shake
+                0.4s
+                ease;
+        }
+
+        @keyframes shake {
+            0%,
+            100% {
+                transform:
+                    translateX(0);
+            }
+
+            25% {
+                transform:
+                    translateX(-8px);
+            }
+
+            50% {
+                transform:
+                    translateX(8px);
+            }
+
+            75% {
+                transform:
+                    translateX(-8px);
+            }
+        }
+
+        /* =====================================================
+           STATUS
+        ===================================================== */
+
+        #statusText {
+            margin:
+                7px 0 0;
+
+            min-height:
+                20px;
+
+            transition:
+                opacity .3s ease;
+
+            text-align: center;
+        }
+
+        /* =====================================================
+           RESET BUTTON
+        ===================================================== */
+
+        #resetButton {
+            margin-top:
+                4px;
+
+            padding:
+                8px 22px;
+
+            border: none;
+
+            border-radius:
+                999px;
+
+            /* PURPLE */
+            background:
+                #7c3aed;
+
+            color: white;
+
+            font-size: 12px;
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition:
+                0.2s ease;
+        }
+
+        #resetButton:hover {
+            /* DARKER PURPLE */
+            background:
+                #6d28d9;
+        }
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 400px) {
+
+            main {
+                padding:
+                    20px 10px 35px;
+            }
+
+            .glass-card {
+                padding:
+                    22px 15px 25px;
+            }
+
+            .birthday-title {
+                font-size:
+                    30px;
+            }
+
+            .birthday-subtitle {
+                font-size:
+                    15px;
+            }
+
+            .pattern-container {
+                width: 240px;
+                height: 240px;
+            }
+
+            .pattern-svg {
+                width: 240px;
+                height: 240px;
+            }
+
+            .dot {
+                width: 44px;
+                height: 44px;
+            }
+
+            .dot[data-number="1"] {
+                left: 24px;
+                top: 24px;
+            }
+
+            .dot[data-number="2"] {
+                left: 120px;
+                top: 24px;
+            }
+
+            .dot[data-number="3"] {
+                left: 216px;
+                top: 24px;
+            }
+
+            .dot[data-number="4"] {
+                left: 24px;
+                top: 120px;
+            }
+
+            .dot[data-number="5"] {
+                left: 120px;
+                top: 120px;
+            }
+
+            .dot[data-number="6"] {
+                left: 216px;
+                top: 120px;
+            }
+
+            .dot[data-number="7"] {
+                left: 24px;
+                top: 216px;
+            }
+
+            .dot[data-number="8"] {
+                left: 120px;
+                top: 216px;
+            }
+
+            .dot[data-number="9"] {
+                left: 216px;
+                top: 216px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEART RAIN
+    ====================================================== -->
+
+    <div id="heartContainer"></div>
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main>
+
+        <div class="glass-card">
+
+            <div id="birthdayContent">
+
+                <!-- BIRTHDAY -->
+
+                <div class="birthday-icon">
+                    🎂
+                </div>
+
+                <h1 class="birthday-title">
+                    Happy Birthday
+                </h1>
+
+                <p class="birthday-subtitle">
+                    To someone very special 💗
+                </p>
+
+                <!-- MESSAGE -->
+
+                <div class="intro-box">
+
+                    <p>
+                        I made something special for you.
+                        But before you see it...
+                        <br>
+
+                        <strong>
+                            You have to unlock it first. 🔐
+                        </strong>
+                    </p>
+
+                </div>
+
+                <!-- PATTERN TITLE -->
+
+                <h2 class="unlock-title">
+                    Unlock Your Surprise 💕
+                </h2>
+
+                <p class="unlock-description">
+                    Connect the dots in the correct pattern.
+                </p>
+
+                <!-- =================================================
+                     PATTERN LOCK
+                ================================================== -->
+
+                <div
+                    id="patternContainer"
+                    class="pattern-container"
+                >
+
+                    <svg
+                        id="patternSvg"
+                        class="pattern-svg"
+                        viewBox="0 0 270 270"
+                    >
+
+                        <polyline
+                            id="patternLine"
+                            class="pattern-line"
+                            points=""
+                        ></polyline>
+
+                    </svg>
+
+                    <div
+                        class="dot"
+                        data-number="1"
+                    ></div>
+
+                    <div
+                        class="dot"
+                        data-number="2"
+                    ></div>
+
+                    <div
+                        class="dot"
+                        data-number="3"
+                    ></div>
+
+                    <div
+                        class="dot"
+                        data-number="4"
+                    ></div>
+
+                    <div
+                        class="dot"
+                        data-number="5"
+                    ></div>
+
+                    <div
+                        class="dot"
+                        data-number="6"
+                    ></div>
+
+                    <div
+                        class="dot"
+                        data-number="7"
+                    ></div>
+
+                    <div
+                        class="dot"
+                        data-number="8"
+                    ></div>
+
+                    <div
+                        class="dot"
+                        data-number="9"
+                    ></div>
+
+                </div>
+
+                <!-- STATUS -->
+
+                <p
+                    id="statusText"
+                    class="text-sm font-semibold"
+                ></p>
+
+                <!-- RESET -->
+
+                <button
+                    id="resetButton"
+                >
+                    Reset Pattern
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <script>
+
+        /* =====================================================
+           HEART RAIN
+        ===================================================== */
+
+        const heartContainer =
+            document.getElementById(
+                "heartContainer"
+            );
+
+        function createHeart() {
+
+            const heart =
+                document.createElement(
+                    "div"
+                );
+
+            heart.classList.add(
+                "heart"
+            );
+
+            heart.innerHTML =
+                Math.random() > 0.5
+                    ? "♥"
+                    : "♡";
+
+            heart.style.left =
+                Math.random() * 100 + "vw";
+
+            const size =
+                Math.random() * 25 + 12;
+
+            heart.style.fontSize =
+                size + "px";
+
+            const duration =
+                Math.random() * 5 + 5;
+
+            heart.style.animationDuration =
+                duration + "s";
+
+            heart.style.opacity =
+                Math.random() * 0.6 + 0.3;
+
+            heartContainer.appendChild(
+                heart
+            );
+
+            setTimeout(
+                () => heart.remove(),
+                duration * 1000
+            );
+        }
+
+        setInterval(
+            createHeart,
+            250
+        );
+
+
+        /* =====================================================
+           PATTERN LOCK
+        ===================================================== */
+
+        const container =
+            document.getElementById(
+                "patternContainer"
+            );
+
+        const dots =
+            document.querySelectorAll(
+                ".dot"
+            );
+
+        const line =
+            document.getElementById(
+                "patternLine"
+            );
+
+        const statusText =
+            document.getElementById(
+                "statusText"
+            );
+
+        const resetButton =
+            document.getElementById(
+                "resetButton"
+            );
+
+
+        /*
+            HIDDEN CORRECT PATTERN
+            8 → 5 → 3 → 7 → 4 → 2 → 6 → 9 → 1
+        */
+
+        const correctPattern = [
+            8,
+            5,
+            3,
+            7,
+            4,
+            2,
+            6,
+            9,
+            1
+        ];
+
+        let selectedPattern = [];
+        let isDrawing = false;
+
+
+        /* =====================================================
+           GET DOT POSITION
+        ===================================================== */
+
+        function getDotPosition(dot) {
+
+            const containerRect =
+                container.getBoundingClientRect();
+
+            const dotRect =
+                dot.getBoundingClientRect();
+
+            return {
+
+                x:
+                    dotRect.left +
+                    dotRect.width / 2 -
+                    containerRect.left,
+
+                y:
+                    dotRect.top +
+                    dotRect.height / 2 -
+                    containerRect.top
+            };
+        }
+
+
+        /* =====================================================
+           UPDATE LINE
+        ===================================================== */
+
+        function updateLine() {
+
+            const points =
+                selectedPattern.map(
+                    number => {
+
+                        const dot =
+                            document.querySelector(
+                                `.dot[data-number="${number}"]`
+                            );
+
+                        const position =
+                            getDotPosition(
+                                dot
+                            );
+
+                        return `${position.x},${position.y}`;
+                    }
+                );
+
+            line.setAttribute(
+                "points",
+                points.join(" ")
+            );
+        }
+
+
+        /* =====================================================
+           SELECT DOT
+        ===================================================== */
+
+        function selectDot(number) {
+
+            if (
+                selectedPattern.includes(
+                    number
+                )
+            ) {
+                return;
+            }
+
+            selectedPattern.push(
+                number
+            );
+
+            const dot =
+                document.querySelector(
+                    `.dot[data-number="${number}"]`
+                );
+
+            dot.classList.add(
+                "active"
+            );
+
+            updateLine();
+        }
+
+
+        /* =====================================================
+           CHECK PATTERN
+        ===================================================== */
+
+        function checkPattern() {
+
+            if (
+                selectedPattern.length !==
+                correctPattern.length
+            ) {
+                return;
+            }
+
+            const correct =
+                selectedPattern.every(
+                    (value, index) =>
+                        value ===
+                        correctPattern[index]
+                );
+
+            if (correct) {
+
+                statusText.textContent =
+                    "Pattern unlocked! 💗";
+
+                statusText.classList.remove(
+                    "text-red-500"
+                );
+
+                statusText.classList.add(
+                    "text-green-600"
+                );
+
+                setTimeout(
+                    () => {
+
+                        window.location.href =
+                            "main.html";
+
+                    },
+                    900
+                );
+
+            } else {
+
+                statusText.textContent =
+                    "Wrong pattern... try again 💕";
+
+                statusText.classList.remove(
+                    "text-green-600"
+                );
+
+                statusText.classList.add(
+                    "text-red-500"
+                );
+
+                container.classList.add(
+                    "shake"
+                );
+
+                setTimeout(
+                    () => {
+
+                        container.classList.remove(
+                            "shake"
+                        );
+
+                        resetPattern();
+
+                    },
+                    600
+                );
+            }
+        }
+
+
+        /* =====================================================
+           MOUSE EVENTS
+        ===================================================== */
+
+        dots.forEach(
+            dot => {
+
+                dot.addEventListener(
+                    "mousedown",
+                    event => {
+
+                        event.preventDefault();
+
+                        isDrawing = true;
+
+                        selectDot(
+                            Number(
+                                dot.dataset.number
+                            )
+                        );
+                    }
+                );
+
+                dot.addEventListener(
+                    "mouseenter",
+                    () => {
+
+                        if (!isDrawing) {
+                            return;
+                        }
+
+                        selectDot(
+                            Number(
+                                dot.dataset.number
+                            )
+                        );
+                    }
+                );
+            }
+        );
+
+
+        document.addEventListener(
+            "mouseup",
+            () => {
+
+                if (!isDrawing) {
+                    return;
+                }
+
+                isDrawing = false;
+
+                checkPattern();
+            }
+        );
+
+
+        /* =====================================================
+           TOUCH EVENTS
+        ===================================================== */
+
+        container.addEventListener(
+            "touchstart",
+            event => {
+
+                event.preventDefault();
+
+                isDrawing = true;
+
+                const touch =
+                    event.touches[0];
+
+                const element =
+                    document.elementFromPoint(
+                        touch.clientX,
+                        touch.clientY
+                    );
+
+                if (
+                    element &&
+                    element.classList.contains(
+                        "dot"
+                    )
+                ) {
+
+                    selectDot(
+                        Number(
+                            element.dataset.number
+                        )
+                    );
+                }
+            },
+            {
+                passive: false
+            }
+        );
+
+
+        container.addEventListener(
+            "touchmove",
+            event => {
+
+                event.preventDefault();
+
+                if (!isDrawing) {
+                    return;
+                }
+
+                const touch =
+                    event.touches[0];
+
+                const element =
+                    document.elementFromPoint(
+                        touch.clientX,
+                        touch.clientY
+                    );
+
+                if (
+                    element &&
+                    element.classList.contains(
+                        "dot"
+                    )
+                ) {
+
+                    selectDot(
+                        Number(
+                            element.dataset.number
+                        )
+                    );
+                }
+            },
+            {
+                passive: false
+            }
+        );
+
+
+        container.addEventListener(
+            "touchend",
+            event => {
+
+                event.preventDefault();
+
+                if (!isDrawing) {
+                    return;
+                }
+
+                isDrawing = false;
+
+                checkPattern();
+            },
+            {
+                passive: false
+            }
+        );
+
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        function resetPattern() {
+
+            selectedPattern = [];
+
+            dots.forEach(
+                dot => {
+
+                    dot.classList.remove(
+                        "active"
+                    );
+                }
+            );
+
+            line.setAttribute(
+                "points",
+                ""
+            );
+
+            statusText.textContent =
+                "";
+
+            statusText.classList.remove(
+                "text-red-500",
+                "text-green-600"
+            );
+        }
+
+
+        resetButton.addEventListener(
+            "click",
+            resetPattern
+        );
+
+
+        window.addEventListener(
+            "resize",
+            updateLine
+        );
+
+    </script>
+
+</body>
+
+</html>

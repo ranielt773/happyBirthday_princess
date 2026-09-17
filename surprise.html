@@ -1,0 +1,2924 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>A Special Surprise For You 💗</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(255,255,255,0.75), transparent 22%),
+        radial-gradient(circle at 85% 25%, rgba(255,255,255,0.7), transparent 25%),
+        radial-gradient(circle at 50% 100%, rgba(196,181,253,0.35), transparent 35%),
+        linear-gradient(135deg, #c4b5fd 0%, #e9d5ff 45%, #c084fc 100%);
+}
+
+/* =====================================================
+   FLOATING HEARTS
+===================================================== */
+
+#heartContainer {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.heart {
+    position: absolute;
+    top: -50px;
+    color: rgba(255,255,255,0.85);
+    pointer-events: none;
+    animation: heartFall linear forwards;
+}
+
+@keyframes heartFall {
+
+    0% {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+
+}
+
+/* =====================================================
+   MAIN CARD
+===================================================== */
+
+.main-card {
+    position: relative;
+    width: min(1100px, calc(100% - 30px));
+    min-height: 760px;
+    margin: 25px auto;
+    padding: 28px;
+    border-radius: 30px;
+    background: rgba(255,255,255,0.42);
+    border: 1px solid rgba(255,255,255,0.75);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow:
+        0 25px 70px rgba(109,40,217,0.20);
+    z-index: 5;
+}
+
+/* =====================================================
+   BACK BUTTON
+===================================================== */
+
+.back-button {
+    position: absolute;
+    top: 27px;
+    left: 30px;
+    border: none;
+    background: transparent;
+    color: #7c3aed;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        transform 0.25s ease,
+        color 0.25s ease;
+    z-index: 100;
+}
+
+.back-button:hover {
+    transform: translateX(-5px);
+    color: #6d28d9;
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header {
+    text-align: center;
+    padding-top: 5px;
+}
+
+.gift-icon {
+    font-size: 46px;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.main-title {
+    margin: 0;
+    color: #7c3aed;
+    font-size: clamp(34px,5vw,54px);
+    line-height: 1.08;
+    font-weight: 700;
+}
+
+.subtitle {
+    margin-top: 16px;
+    color: #76538f;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* =====================================================
+   BOX STAGE
+===================================================== */
+
+.box-stage {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1600px;
+    perspective-origin: 50% 45%;
+}
+
+/* =====================================================
+   GIFT BOX
+===================================================== */
+
+.gift-box {
+    position: relative;
+    width: 440px;
+    height: 360px;
+    transform-style: preserve-3d;
+    transform: rotateX(18deg);
+    cursor: pointer;
+    transition:
+        transform 0.6s
+        cubic-bezier(.2,.8,.2,1);
+}
+
+.gift-box:hover {
+    transform:
+        rotateX(18deg)
+        translateY(-6px);
+}
+
+/* =====================================================
+   SHADOW
+===================================================== */
+
+.box-shadow {
+    position: absolute;
+    left: 50%;
+    top: 115px;
+    width: 410px;
+    height: 260px;
+    transform:
+        translateX(-50%)
+        translateZ(-20px);
+    border-radius: 20px;
+    background:
+        rgba(91,61,115,0.24);
+    filter: blur(18px);
+    z-index: 1;
+}
+
+/* =====================================================
+   BOX BASE
+===================================================== */
+
+.box-base {
+    position: absolute;
+    left: 50%;
+    top: 105px;
+    width: 380px;
+    height: 245px;
+    transform:
+        translateX(-50%);
+    transform-style: preserve-3d;
+    z-index: 5;
+}
+
+/* =====================================================
+   BOX INSIDE
+===================================================== */
+
+.box-inside {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f1eaff
+        );
+    border:
+        2px solid #d8c9e4;
+    border-radius:
+        12px 12px 18px 18px;
+    overflow: hidden;
+    box-shadow:
+        inset 0 0 0 5px
+        rgba(255,255,255,0.55),
+        0 20px 30px
+        rgba(83,56,100,0.17);
+    z-index: 3;
+}
+
+.box-inside::before {
+    content: "";
+    position: absolute;
+    inset: 11px;
+    border:
+        2px solid
+        rgba(211,197,225,0.8);
+    border-radius: 8px;
+    pointer-events: none;
+    z-index: 50;
+}
+
+/* =====================================================
+   BACK WALL
+===================================================== */
+
+.inside-back {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #eee7f5
+        );
+    border-bottom:
+        1px solid #dcd0e5;
+    z-index: 2;
+}
+
+/* =====================================================
+   PURPLE SHREDDED PAPER
+===================================================== */
+
+.shredded-paper {
+    position: absolute;
+    left: 50%;
+    top: 45px;
+    width: 345px;
+    height: 185px;
+    transform:
+        translateX(-50%)
+        scale(.45);
+    border-radius: 14px;
+    overflow: hidden;
+    background:
+        repeating-linear-gradient(
+            92deg,
+            #7c3aed 0px,
+            #c4b5fd 8px,
+            #9f67d1 15px,
+            #e1d1f2 22px,
+            #7130a8 30px,
+            #b78bd4 38px
+        );
+    box-shadow:
+        0 8px 15px
+        rgba(76,40,105,.30);
+    opacity: 0;
+    transition:
+        opacity .7s ease .65s,
+        transform 1s
+        cubic-bezier(.2,.8,.2,1)
+        .65s;
+    z-index: 6;
+}
+
+.shredded-paper::before {
+    content: "";
+    position: absolute;
+    inset: -30px;
+    background:
+        repeating-linear-gradient(
+            72deg,
+            transparent 0px,
+            transparent 6px,
+            rgba(74,37,105,.45) 7px,
+            rgba(74,37,105,.45) 10px,
+            transparent 12px,
+            transparent 19px
+        );
+    transform: rotate(4deg);
+}
+
+.shredded-paper::after {
+    content: "";
+    position: absolute;
+    inset: -30px;
+    background:
+        repeating-linear-gradient(
+            105deg,
+            transparent 0px,
+            transparent 9px,
+            rgba(255,255,255,.45) 10px,
+            rgba(255,255,255,.45) 12px,
+            transparent 15px,
+            transparent 22px
+        );
+    transform: rotate(-5deg);
+}
+
+.gift-box.open .shredded-paper {
+    opacity: 1;
+    transform:
+        translateX(-50%)
+        scale(1);
+}
+
+/* =====================================================
+   HAIR CLAWS
+===================================================== */
+
+.hair-clips {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+    pointer-events: none;
+}
+
+.hair-claw {
+    position: absolute;
+    width: 100px;
+    height: 105px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform:
+        translateY(45px)
+        scale(.25)
+        rotate(-12deg);
+    transition:
+        opacity .55s ease,
+        transform .85s
+        cubic-bezier(.2,.8,.2,1);
+    z-index: 25;
+}
+
+.claw-shape {
+    position: relative;
+    width: 70px;
+    height: 76px;
+    transform: rotate(-8deg);
+    filter:
+        drop-shadow(
+            0 8px 7px
+            rgba(65,25,95,.40)
+        );
+}
+
+.claw-body {
+    position: absolute;
+    left: 21px;
+    top: 19px;
+    width: 28px;
+    height: 52px;
+    border-radius:
+        13px 13px 16px 16px;
+    background:
+        linear-gradient(
+            145deg,
+            #d8b0eb,
+            #8a45ae 55%,
+            #63257f
+        );
+    border:
+        2px solid #73358e;
+    box-shadow:
+        inset 4px 3px 6px
+        rgba(255,255,255,.45);
+}
+
+.claw-tooth {
+    position: absolute;
+    width: 14px;
+    height: 43px;
+    border-radius:
+        8px 8px 5px 5px;
+    background:
+        linear-gradient(
+            90deg,
+            #b77bd1,
+            #793697
+        );
+    border:
+        2px solid #6c2c88;
+    transform-origin:
+        50% 100%;
+    top: 2px;
+}
+
+.claw-tooth::after {
+    content: "";
+    position: absolute;
+    bottom: -7px;
+    left: 3px;
+    width: 5px;
+    height: 10px;
+    border-radius:
+        0 0 5px 5px;
+    background: #6f318c;
+}
+
+.tooth1 {
+    left: 1px;
+    transform: rotate(-30deg);
+}
+
+.tooth2 {
+    left: 11px;
+    transform: rotate(-17deg);
+}
+
+.tooth3 {
+    right: 11px;
+    transform: rotate(17deg);
+}
+
+.tooth4 {
+    right: 1px;
+    transform: rotate(30deg);
+}
+
+.claw-top {
+    position: absolute;
+    left: 20px;
+    top: 9px;
+    width: 30px;
+    height: 22px;
+    border-radius:
+        50% 50% 45% 45%;
+    background:
+        linear-gradient(
+            145deg,
+            #d9b5ea,
+            #82409f
+        );
+    border:
+        2px solid #71318c;
+    z-index: 5;
+}
+
+.hair-claw.left {
+    left: 20px;
+    top: 78px;
+    transition-delay: 1.05s;
+}
+
+.hair-claw.right {
+    right: 20px;
+    top: 78px;
+    transform:
+        translateY(45px)
+        scale(.25)
+        rotate(12deg);
+    transition-delay: 1.18s;
+}
+
+.gift-box.open .hair-claw {
+    opacity: 1;
+    transform:
+        translateY(0)
+        scale(1)
+        rotate(0deg);
+}
+
+/* =====================================================
+   HAIR PINS
+===================================================== */
+
+.hair-pin {
+    position: absolute;
+    width: 105px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform:
+        translateY(35px)
+        scale(.25)
+        rotate(-18deg);
+    transition:
+        opacity .55s ease,
+        transform .8s
+        cubic-bezier(.2,.8,.2,1);
+    z-index: 26;
+}
+
+.pin-shape {
+    position: relative;
+    width: 82px;
+    height: 25px;
+    transform: rotate(-8deg);
+}
+
+.pin-line {
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 78px;
+    height: 7px;
+    border-radius: 10px;
+    background:
+        linear-gradient(
+            180deg,
+            #d9b5e9,
+            #783494
+        );
+    box-shadow:
+        0 4px 5px
+        rgba(70,25,95,.35);
+}
+
+.pin-line::after {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 62px;
+    height: 4px;
+    border-radius: 8px;
+    background:
+        #a55dc1;
+}
+
+.pin-tip {
+    position: absolute;
+    right: -3px;
+    top: 7px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #6c2b87;
+}
+
+.hair-pin.left {
+    left: 10px;
+    top: 155px;
+    transition-delay: 1.28s;
+}
+
+.hair-pin.right {
+    right: 10px;
+    top: 155px;
+    transform:
+        translateY(35px)
+        scale(.25)
+        rotate(18deg);
+    transition-delay: 1.38s;
+}
+
+.gift-box.open .hair-pin {
+    opacity: 1;
+    transform:
+        translateY(0)
+        scale(1)
+        rotate(0deg);
+}
+
+/* =====================================================
+   PURPLE RECORDER
+===================================================== */
+
+.recorder {
+    position: absolute;
+    left: 50%;
+    top: 45px;
+    width: 170px;
+    max-height: 95px;
+    object-fit: contain;
+    transform:
+        translate(-50%,45px)
+        scale(.4)
+        rotate(-4deg);
+    opacity: 0;
+    filter:
+        drop-shadow(
+            0 12px 10px
+            rgba(77,38,91,.40)
+        );
+    transition:
+        opacity .7s ease 1.0s,
+        transform 1s
+        cubic-bezier(.2,.8,.2,1)
+        1.0s;
+    z-index: 30;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.gift-box.open .recorder {
+    opacity: 1;
+    transform:
+        translate(-50%,0)
+        scale(1)
+        rotate(-4deg);
+}
+
+.gift-box.open .recorder:hover {
+    filter:
+        drop-shadow(
+            0 14px 16px
+            rgba(109,53,140,.55)
+        );
+    transform:
+        translate(-50%,0)
+        scale(1.06)
+        rotate(-4deg);
+}
+
+/* =====================================================
+   THREE PURPLE ROSES
+===================================================== */
+
+.roses {
+    position: absolute;
+    left: 50%;
+    top: 135px;
+    width: 245px;
+    height: 65px;
+    transform:
+        translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 32;
+    pointer-events: none;
+}
+
+.rose {
+    width: 65px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    opacity: 0;
+    filter:
+        hue-rotate(245deg)
+        saturate(3)
+        brightness(.78)
+        drop-shadow(
+            0 7px 7px
+            rgba(65,25,95,.42)
+        );
+    transform:
+        translateY(35px)
+        scale(.2)
+        rotate(-15deg);
+    transition:
+        opacity .55s ease,
+        transform .8s
+        cubic-bezier(.2,.8,.2,1);
+}
+
+.rose:nth-child(1) {
+    transition-delay: 1.40s;
+}
+
+.rose:nth-child(2) {
+    transition-delay: 1.52s;
+}
+
+.rose:nth-child(3) {
+    transition-delay: 1.64s;
+}
+
+.gift-box.open .rose {
+    opacity: 1;
+    transform:
+        translateY(0)
+        scale(1)
+        rotate(0deg);
+}
+
+/* =====================================================
+   PURPLE BEADED BRACELET
+===================================================== */
+
+.bracelet {
+    position: absolute;
+    left: 50%;
+    top: 170px;
+    width: 105px;
+    height: 70px;
+    transform:
+        translate(-50%,45px)
+        scale(.25)
+        rotate(-15deg);
+    opacity: 0;
+    z-index: 34;
+    transition:
+        opacity .6s ease 1.72s,
+        transform .9s
+        cubic-bezier(.2,.8,.2,1);
+    pointer-events: none;
+}
+
+.bracelet-ring {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 82px;
+    height: 54px;
+    transform:
+        translate(-50%,-50%)
+        rotate(-8deg);
+    border:
+        8px solid #8b45aa;
+    border-radius: 50%;
+    box-shadow:
+        inset 0 3px 5px rgba(255,255,255,.5),
+        0 7px 10px rgba(67,28,91,.38);
+}
+
+.bead {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background:
+        radial-gradient(
+            circle at 32% 25%,
+            #ead5f3 0%,
+            #c08bd6 22%,
+            #8b45aa 58%,
+            #63257f 100%
+        );
+    border:
+        1px solid #71318c;
+    box-shadow:
+        inset 2px 2px 3px rgba(255,255,255,.55),
+        0 3px 5px rgba(66,28,91,.35);
+}
+
+.bead1 {
+    left: 13px;
+    top: 28px;
+}
+
+.bead2 {
+    left: 21px;
+    top: 13px;
+}
+
+.bead3 {
+    left: 40px;
+    top: 7px;
+}
+
+.bead4 {
+    left: 61px;
+    top: 11px;
+}
+
+.bead5 {
+    left: 75px;
+    top: 25px;
+}
+
+.bead6 {
+    left: 74px;
+    top: 42px;
+}
+
+.bead7 {
+    left: 57px;
+    top: 51px;
+}
+
+.bead8 {
+    left: 37px;
+    top: 54px;
+}
+
+.bead9 {
+    left: 18px;
+    top: 46px;
+}
+
+.bracelet-charm {
+    position: absolute;
+    left: 50%;
+    top: 3px;
+    transform:
+        translateX(-50%);
+    font-size: 18px;
+    color: #d8b0eb;
+    filter:
+        drop-shadow(
+            0 3px 3px
+            rgba(67,28,91,.35)
+        );
+}
+
+.gift-box.open .bracelet {
+    opacity: 1;
+    transform:
+        translate(-50%,0)
+        scale(1)
+        rotate(0deg);
+}
+
+/* =====================================================
+   FRONT WALL
+===================================================== */
+
+.box-front {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 58px;
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #e9e0f0
+        );
+    border:
+        1px solid #d7c9df;
+    border-radius:
+        0 0 14px 14px;
+    box-shadow:
+        0 10px 20px
+        rgba(91,58,82,.14);
+    z-index: 35;
+}
+
+.box-front::before {
+    content: "";
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    top: 7px;
+    height: 4px;
+    border-radius: 10px;
+    background:
+        rgba(255,255,255,.9);
+}
+
+.ribbon {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 44px;
+    height: 58px;
+    transform:
+        translateX(-50%);
+    background:
+        linear-gradient(
+            90deg,
+            #e8dcef,
+            #ffffff,
+            #e8dcef
+        );
+    border-left:
+        1px solid #d2c3dc;
+    border-right:
+        1px solid #d2c3dc;
+    transition:
+        opacity .35s ease,
+        transform .4s ease;
+    z-index: 40;
+}
+
+.gift-box.open .ribbon {
+    opacity: 0;
+    transform:
+        translateX(-50%)
+        scaleY(.2);
+}
+
+/* =====================================================
+   HINGE
+===================================================== */
+
+.hinge {
+    position: absolute;
+    left: 50%;
+    top: -2px;
+    width: 350px;
+    height: 12px;
+    transform:
+        translateX(-50%);
+    background:
+        linear-gradient(
+            180deg,
+            #e5d9ed,
+            #ffffff
+        );
+    border-radius:
+        8px 8px 0 0;
+    z-index: 8;
+}
+
+/* =====================================================
+   LID
+===================================================== */
+
+.lid {
+    position: absolute;
+    left: 50%;
+    top: 105px;
+    width: 400px;
+    height: 245px;
+    transform:
+        translateX(-50%)
+        translateZ(28px);
+    transform-origin:
+        50% 0%;
+    transform-style:
+        preserve-3d;
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff 0%,
+            #faf7fd 55%,
+            #eee7f3 100%
+        );
+    border:
+        2px solid #d8cbdc;
+    border-radius: 13px;
+    box-shadow:
+        0 18px 30px
+        rgba(85,53,78,.20);
+    z-index: 30;
+    transition:
+        transform
+        1.35s
+        cubic-bezier(.16,.82,.18,1);
+}
+
+.lid-outer {
+    position: absolute;
+    inset: 0;
+    border-radius: 11px;
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #faf7fd,
+            #eee7f3
+        );
+    border:
+        1px solid #dcd0e2;
+    backface-visibility:
+        hidden;
+    -webkit-backface-visibility:
+        hidden;
+    z-index: 2;
+}
+
+.lid-inner {
+    position: absolute;
+    inset: 7px;
+    border-radius: 9px;
+    background:
+        linear-gradient(
+            145deg,
+            #fffaff,
+            #f1e7f5
+        );
+    border:
+        2px solid
+        rgba(208,195,216,.8);
+    transform:
+        rotateX(180deg)
+        translateZ(3px);
+    transform-style:
+        preserve-3d;
+    backface-visibility:
+        visible;
+    -webkit-backface-visibility:
+        visible;
+    z-index: 10;
+    overflow: hidden;
+}
+
+/* =====================================================
+   RANDOM PHOTOS
+===================================================== */
+
+.lid-photos {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.lid-photo {
+    position: absolute;
+    width: 88px;
+    height: 105px;
+    padding: 5px;
+    object-fit: cover;
+    background: white;
+    border:
+        1px solid #ddd2df;
+    border-radius: 4px;
+    box-shadow:
+        0 7px 13px
+        rgba(91,54,112,.25);
+    opacity: 0;
+    cursor: zoom-in;
+    pointer-events: auto;
+    transition:
+        opacity .8s ease 1.0s,
+        transform 1s
+        cubic-bezier(.2,.8,.2,1),
+        box-shadow .25s ease;
+}
+
+.lid-photo:hover {
+    box-shadow:
+        0 10px 20px
+        rgba(91,54,112,.35);
+}
+
+.lid-photo.photo-one {
+    left: 25px;
+    top: 15px;
+    transform:
+        rotate(-13deg)
+        scale(.7);
+}
+
+.lid-photo.photo-two {
+    right: 24px;
+    top: 62px;
+    transform:
+        rotate(11deg)
+        scale(.7);
+}
+
+.lid-photo.photo-three {
+    left: 125px;
+    bottom: 12px;
+    width: 82px;
+    height: 95px;
+    transform:
+        rotate(7deg)
+        scale(.7);
+}
+
+.gift-box.open .lid-photo {
+    opacity: 1;
+}
+
+.gift-box.open .lid-photo.photo-one {
+    transform:
+        rotate(-13deg)
+        scale(1);
+}
+
+.gift-box.open .lid-photo.photo-two {
+    transform:
+        rotate(11deg)
+        scale(1);
+}
+
+.gift-box.open .lid-photo.photo-three {
+    transform:
+        rotate(7deg)
+        scale(1);
+}
+
+/* =====================================================
+   TWO SEPARATE BIRTHDAY BANNERS
+===================================================== */
+
+.birthday-banner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 355px;
+    height: 170px;
+    transform:
+        translate(-50%,-50%);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 20;
+    transition:
+        opacity .4s ease 1.05s;
+}
+
+.gift-box.open .birthday-banner {
+    opacity: 1;
+}
+
+.banner-row {
+    position: absolute;
+    left: 30px;
+    right: 30px;
+    height: 75px;
+}
+
+.banner-row.happy-row {
+    top: 3px;
+}
+
+.banner-row.birthday-row {
+    top: 82px;
+    left: 12px;
+    right: 12px;
+}
+
+.banner-row::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 13px;
+    height: 35px;
+    border-bottom:
+        3px solid #8b5aa8;
+    border-radius:
+        0 0 50% 50%;
+    z-index: 5;
+}
+
+.banner-flags {
+    position: absolute;
+    left: 2px;
+    right: 2px;
+    top: 15px;
+    height: 60px;
+    display: flex;
+    justify-content:
+        space-between;
+    align-items:
+        flex-start;
+    z-index: 20;
+}
+
+.banner-letter {
+    position: relative;
+    width: 38px;
+    height: 49px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2px;
+    background:
+        linear-gradient(
+            145deg,
+            #d7b8e8,
+            #a979c4
+        );
+    color:
+        #6d3b87;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+    font-size: 20px;
+    font-weight: 700;
+    text-shadow:
+        0 1px 1px
+        rgba(255,255,255,.75);
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            100% 80%,
+            50% 100%,
+            0 80%
+        );
+    box-shadow:
+        0 3px 7px
+        rgba(91,54,112,.22);
+    transform-origin:
+        50% 0;
+    animation:
+        bannerSwing
+        2.8s
+        ease-in-out
+        infinite;
+}
+
+.happy-row .banner-letter:nth-child(1) {
+    margin-top: 0;
+    transform: rotate(-7deg);
+    animation-delay: 0s;
+}
+
+.happy-row .banner-letter:nth-child(2) {
+    margin-top: 5px;
+    transform: rotate(-4deg);
+    animation-delay: .08s;
+}
+
+.happy-row .banner-letter:nth-child(3) {
+    margin-top: 9px;
+    transform: rotate(-2deg);
+    animation-delay: .16s;
+}
+
+.happy-row .banner-letter:nth-child(4) {
+    margin-top: 9px;
+    transform: rotate(2deg);
+    animation-delay: .24s;
+}
+
+.happy-row .banner-letter:nth-child(5) {
+    margin-top: 5px;
+    transform: rotate(7deg);
+    animation-delay: .32s;
+}
+
+.birthday-row .banner-letter:nth-child(1) {
+    margin-top: 0;
+    transform: rotate(-7deg);
+    animation-delay: .40s;
+}
+
+.birthday-row .banner-letter:nth-child(2) {
+    margin-top: 3px;
+    transform: rotate(-6deg);
+    animation-delay: .48s;
+}
+
+.birthday-row .banner-letter:nth-child(3) {
+    margin-top: 6px;
+    transform: rotate(-4deg);
+    animation-delay: .56s;
+}
+
+.birthday-row .banner-letter:nth-child(4) {
+    margin-top: 9px;
+    transform: rotate(-2deg);
+    animation-delay: .64s;
+}
+
+.birthday-row .banner-letter:nth-child(5) {
+    margin-top: 11px;
+    transform: rotate(0deg);
+    animation-delay: .72s;
+}
+
+.birthday-row .banner-letter:nth-child(6) {
+    margin-top: 9px;
+    transform: rotate(2deg);
+    animation-delay: .80s;
+}
+
+.birthday-row .banner-letter:nth-child(7) {
+    margin-top: 6px;
+    transform: rotate(4deg);
+    animation-delay: .88s;
+}
+
+.birthday-row .banner-letter:nth-child(8) {
+    margin-top: 3px;
+    transform: rotate(6deg);
+    animation-delay: .96s;
+}
+
+.banner-letter::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    width: 7px;
+    height: 7px;
+    transform:
+        translateX(-50%);
+    border-radius: 50%;
+    background:
+        #70448a;
+    border:
+        1px solid
+        #b58bca;
+    z-index: 30;
+}
+
+@keyframes bannerSwing {
+
+    0%,
+    100% {
+        transform:
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            rotate(2deg)
+            translateY(3px);
+    }
+
+}
+
+.banner-heart {
+    position: absolute;
+    color:
+        #8b5aa8;
+    font-size: 22px;
+    z-index: 40;
+    text-shadow:
+        0 2px 4px
+        rgba(100,55,125,.20);
+}
+
+.happy-row .banner-heart.left {
+    left: -18px;
+    top: 18px;
+}
+
+.happy-row .banner-heart.right {
+    right: -18px;
+    top: 18px;
+}
+
+.birthday-row .banner-heart.left {
+    left: -6px;
+    top: 18px;
+}
+
+.birthday-row .banner-heart.right {
+    right: -6px;
+    top: 18px;
+}
+
+/* =====================================================
+   OPEN LID
+===================================================== */
+
+.gift-box.open .lid {
+    transform:
+        translateX(-50%)
+        translateZ(22px)
+        rotateX(155deg);
+}
+
+/* =====================================================
+   MAGNETIC GAP
+===================================================== */
+
+.magnetic-gap {
+    position: absolute;
+    left: 50%;
+    top: 96px;
+    width: 320px;
+    height: 8px;
+    transform:
+        translateX(-50%)
+        scaleX(0);
+    border-radius: 50%;
+    background: white;
+    filter: blur(5px);
+    opacity: 0;
+    z-index: 50;
+    pointer-events: none;
+}
+
+@keyframes magneticFlash {
+
+    0% {
+        opacity: 0;
+        transform:
+            translateX(-50%)
+            scaleX(0);
+    }
+
+    35% {
+        opacity: 1;
+        transform:
+            translateX(-50%)
+            scaleX(1.2);
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translateX(-50%)
+            scaleX(1);
+    }
+
+}
+
+.gift-box.open .magnetic-gap {
+    animation:
+        magneticFlash
+        .75s
+        ease
+        forwards;
+}
+
+/* =====================================================
+   TAP MESSAGE
+===================================================== */
+
+.tap-message {
+    position: absolute;
+    left: 50%;
+    bottom: 5px;
+    transform:
+        translateX(-50%);
+    white-space: nowrap;
+    color:
+        #7c3aed;
+    font-size: 18px;
+    font-weight: 700;
+    animation:
+        tapPulse
+        1.5s
+        ease-in-out
+        infinite;
+    transition:
+        opacity .4s ease;
+    z-index: 80;
+}
+
+@keyframes tapPulse {
+
+    0%,
+    100% {
+        transform:
+            translateX(-50%)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translateX(-50%)
+            scale(1.08);
+    }
+
+}
+
+.gift-box.open .tap-message {
+    opacity: 0;
+}
+
+/* =====================================================
+   SPARKLES
+===================================================== */
+
+.sparkle {
+    position: absolute;
+    color: white;
+    font-size: 25px;
+    opacity: 0;
+    z-index: 90;
+    pointer-events: none;
+}
+
+.sparkle1 {
+    left: 8%;
+    top: 25%;
+}
+
+.sparkle2 {
+    right: 10%;
+    top: 20%;
+}
+
+.sparkle3 {
+    left: 13%;
+    bottom: 25%;
+}
+
+.sparkle4 {
+    right: 15%;
+    bottom: 28%;
+}
+
+@keyframes sparkle {
+
+    0% {
+        opacity: 0;
+        transform:
+            scale(0)
+            rotate(0deg);
+    }
+
+    35% {
+        opacity: 1;
+        transform:
+            scale(1.5)
+            rotate(45deg);
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            scale(.6)
+            rotate(90deg);
+    }
+
+}
+
+.gift-box.open .sparkle {
+    animation:
+        sparkle
+        1.1s
+        ease
+        forwards;
+}
+
+/* =====================================================
+   PHOTO LIGHTBOX
+===================================================== */
+
+.photo-lightbox {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        rgba(35,18,32,0.82);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+        opacity .3s ease,
+        visibility .3s ease;
+    z-index: 9999;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.photo-lightbox.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.lightbox-image {
+    max-width: min(90vw, 650px);
+    max-height: 85vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    padding: 8px;
+    background: white;
+    border-radius: 8px;
+    box-shadow:
+        0 25px 70px
+        rgba(0,0,0,.45);
+    transform:
+        scale(.75);
+    opacity: 0;
+    transition:
+        transform .35s
+        cubic-bezier(.2,.8,.2,1),
+        opacity .3s ease;
+}
+
+.photo-lightbox.show .lightbox-image {
+    transform:
+        scale(1);
+    opacity: 1;
+}
+
+.close-photo {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 50%;
+    background:
+        rgba(255,255,255,.9);
+    color:
+        #8b45aa;
+    font-size: 32px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:
+        0 6px 20px
+        rgba(0,0,0,.25);
+    transition:
+        transform .2s ease,
+        background .2s ease;
+}
+
+.close-photo:hover {
+    transform:
+        rotate(90deg)
+        scale(1.08);
+    background:
+        #ffffff;
+}
+
+.photo-hint {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform:
+        translateX(-50%);
+    color:
+        rgba(255,255,255,.9);
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* =====================================================
+   AUDIO PLAYER MODAL
+===================================================== */
+
+.audio-modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background:
+        rgba(39,20,44,0.70);
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(9px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+        opacity .3s ease,
+        visibility .3s ease;
+    z-index: 10000;
+}
+
+.audio-modal.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.audio-card {
+    width: min(420px, 92vw);
+    padding: 30px 25px 25px;
+    border-radius: 28px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.98),
+            rgba(245,237,251,.98)
+        );
+    border:
+        1px solid rgba(255,255,255,.9);
+    box-shadow:
+        0 25px 70px
+        rgba(69,32,80,.35);
+    text-align: center;
+    transform:
+        scale(.75)
+        translateY(25px);
+    transition:
+        transform .4s
+        cubic-bezier(.2,.8,.2,1);
+}
+
+.audio-modal.show .audio-card {
+    transform:
+        scale(1)
+        translateY(0);
+}
+
+.audio-recorder-icon {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+        linear-gradient(
+            145deg,
+            #d9b5e9,
+            #8b45aa
+        );
+    box-shadow:
+        0 10px 25px
+        rgba(104,54,129,.30);
+    font-size: 38px;
+}
+
+.audio-title {
+    margin: 0;
+    color: #7b3f96;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.audio-subtitle {
+    margin:
+        8px 0 22px;
+    color: #8f69a4;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.audio-player {
+    width: 100%;
+}
+
+.audio-player::-webkit-media-controls-panel {
+    background:
+        #eee1f5;
+}
+
+.audio-player::-webkit-media-controls-play-button {
+    background-color: #d8b0eb;
+    border-radius: 50%;
+}
+
+.audio-close {
+    margin-top: 20px;
+    border: none;
+    padding:
+        11px 24px;
+    border-radius: 25px;
+    background:
+        #8b45aa;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+        transform .2s ease,
+        background .2s ease;
+}
+
+.audio-close:hover {
+    transform:
+        translateY(-2px);
+    background:
+        #73358e;
+}
+
+.audio-error {
+    display: none;
+    margin-top: 12px;
+    color: #9b5b91;
+    font-size: 13px;
+}
+
+/* =====================================================
+   REVEAL PANEL
+===================================================== */
+
+.reveal-panel {
+    width: min(900px, 100%);
+    margin:
+        -5px auto 0;
+    padding: 25px;
+    border-radius: 25px;
+    background:
+        rgba(255,255,255,.40);
+    border:
+        1px solid
+        rgba(255,255,255,.70);
+    opacity: 0;
+    transform:
+        translateY(25px);
+    pointer-events: none;
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.reveal-panel.show {
+    opacity: 1;
+    transform:
+        translateY(0);
+    pointer-events: auto;
+}
+
+.reveal-title {
+    text-align: center;
+    color:
+        #7c3aed;
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.items {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.item {
+    padding:
+        10px 18px;
+    border-radius: 30px;
+    background:
+        rgba(255,255,255,.65);
+    color:
+        #79558f;
+    font-weight: 600;
+}
+
+.small-message {
+    text-align: center;
+    margin-top: 18px;
+    color:
+        #8f69a4;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .main-card {
+        width:
+            calc(100% - 14px);
+        margin:
+            7px auto;
+        padding:
+            18px;
+        min-height:
+            760px;
+    }
+
+    .back-button {
+        top: 20px;
+        left: 18px;
+        font-size: 14px;
+    }
+
+    .header {
+        padding-top: 40px;
+    }
+
+    .gift-icon {
+        font-size: 40px;
+    }
+
+    .main-title {
+        font-size: 33px;
+    }
+
+    .subtitle {
+        font-size: 15px;
+        margin-top: 13px;
+    }
+
+    .box-stage {
+        height: 450px;
+        perspective: 1500px;
+    }
+
+    .gift-box {
+        transform:
+            rotateX(18deg)
+            scale(.78);
+    }
+
+    .gift-box:hover {
+        transform:
+            rotateX(18deg)
+            scale(.78)
+            translateY(-5px);
+    }
+
+    .gift-box.open {
+        transform:
+            rotateX(18deg)
+            scale(.78)
+            translateY(-3px);
+    }
+
+    .gift-box.open:hover {
+        transform:
+            rotateX(18deg)
+            scale(.78)
+            translateY(-3px);
+    }
+
+    .roses {
+        top: 130px;
+        width: 250px;
+    }
+
+    .rose {
+        font-size: 48px;
+    }
+
+    .bracelet {
+        top: 168px;
+        transform:
+            translate(-50%,45px)
+            scale(.9)
+            rotate(-15deg);
+    }
+
+    .gift-box.open .bracelet {
+        transform:
+            translate(-50%,0)
+            scale(.9)
+            rotate(0deg);
+    }
+
+    .hair-claw.left {
+        left: 12px;
+    }
+
+    .hair-claw.right {
+        right: 12px;
+    }
+
+    .hair-pin.left {
+        left: 5px;
+    }
+
+    .hair-pin.right {
+        right: 5px;
+    }
+
+    .birthday-banner {
+        width: 355px;
+    }
+
+    .banner-letter {
+        width: 36px;
+        height: 47px;
+        font-size: 19px;
+    }
+
+    .birthday-row .banner-letter {
+        width: 35px;
+    }
+
+    .lid-photo.photo-one {
+        left: 18px;
+        top: 13px;
+    }
+
+    .lid-photo.photo-two {
+        right: 17px;
+        top: 62px;
+    }
+
+    .lid-photo.photo-three {
+        left: 125px;
+        bottom: 12px;
+    }
+
+    .reveal-panel {
+        margin-top:
+            -20px;
+        padding:
+            18px;
+    }
+
+    .reveal-title {
+        font-size: 25px;
+    }
+
+    .items {
+        flex-direction: column;
+    }
+
+    .item {
+        width: 100%;
+        text-align: center;
+    }
+
+    .lightbox-image {
+        max-width: 92vw;
+        max-height: 78vh;
+    }
+
+    .close-photo {
+        top: 15px;
+        right: 15px;
+    }
+
+    .audio-card {
+        padding:
+            25px 18px 20px;
+    }
+
+    .audio-title {
+        font-size: 22px;
+    }
+
+}
+
+@media (max-width: 400px) {
+
+    .gift-box {
+        transform:
+            rotateX(18deg)
+            scale(.68);
+    }
+
+    .gift-box:hover {
+        transform:
+            rotateX(18deg)
+            scale(.68)
+            translateY(-5px);
+    }
+
+    .gift-box.open {
+        transform:
+            rotateX(18deg)
+            scale(.68);
+    }
+
+    .gift-box.open:hover {
+        transform:
+            rotateX(18deg)
+            scale(.68);
+    }
+
+    .birthday-banner {
+        width: 350px;
+    }
+
+    .banner-letter {
+        width: 30px;
+        height: 43px;
+        font-size: 17px;
+    }
+
+    .birthday-row .banner-letter {
+        width: 29px;
+    }
+
+    .roses {
+        top: 125px;
+        width: 245px;
+    }
+
+    .rose {
+        font-size: 46px;
+    }
+
+    .bracelet {
+        top: 164px;
+    }
+
+    .gift-box.open .bracelet {
+        transform:
+            translate(-50%,0)
+            scale(.82)
+            rotate(0deg);
+    }
+
+    .lid-photo.photo-one {
+        left: 15px;
+    }
+
+    .lid-photo.photo-two {
+        right: 13px;
+    }
+
+    .lid-photo.photo-three {
+        left: 115px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="heartContainer"></div>
+
+<main>
+
+<div class="main-card">
+
+<button
+class="back-button"
+onclick="goBack()"
+>
+← Back to surprises
+</button>
+
+<div class="header">
+
+<div class="gift-icon">
+    🎁
+</div>
+
+<h1 class="main-title">
+    A Special<br>
+    Surprise For You 💗
+</h1>
+
+<p class="subtitle">
+    Tap the box to reveal what's inside!
+</p>
+
+</div>
+
+<section class="box-stage">
+
+<div
+    id="giftBox"
+    class="gift-box"
+    onclick="openBox()"
+>
+
+<div class="box-shadow"></div>
+
+<div class="sparkle sparkle1">
+    ✦
+</div>
+
+<div class="sparkle sparkle2">
+    ✧
+</div>
+
+<div class="sparkle sparkle3">
+    ✦
+</div>
+
+<div class="sparkle sparkle4">
+    ✧
+</div>
+
+<div class="box-base">
+
+<div class="box-inside">
+
+<div class="inside-back"></div>
+
+<div class="shredded-paper"></div>
+
+<!-- =================================================
+     HAIR CLAWS + HAIR PINS
+================================================== -->
+
+<div class="hair-clips">
+
+<div class="hair-claw left">
+
+<div class="claw-shape">
+
+<div class="claw-top"></div>
+
+<div class="claw-body"></div>
+
+<div class="claw-tooth tooth1"></div>
+
+<div class="claw-tooth tooth2"></div>
+
+<div class="claw-tooth tooth3"></div>
+
+<div class="claw-tooth tooth4"></div>
+
+</div>
+
+</div>
+
+<div class="hair-claw right">
+
+<div class="claw-shape">
+
+<div class="claw-top"></div>
+
+<div class="claw-body"></div>
+
+<div class="claw-tooth tooth1"></div>
+
+<div class="claw-tooth tooth2"></div>
+
+<div class="claw-tooth tooth3"></div>
+
+<div class="claw-tooth tooth4"></div>
+
+</div>
+
+</div>
+
+<div class="hair-pin left">
+
+<div class="pin-shape">
+
+<div class="pin-line"></div>
+
+<div class="pin-tip"></div>
+
+</div>
+
+</div>
+
+<div class="hair-pin right">
+
+<div class="pin-shape">
+
+<div class="pin-line"></div>
+
+<div class="pin-tip"></div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- =================================================
+     PURPLE RECORDER
+================================================== -->
+
+<img
+src="recorder.png"
+alt="Purple Recorder"
+class="recorder"
+onclick="openAudio(event)"
+>
+
+<!-- =================================================
+     THREE PURPLE ROSES
+================================================== -->
+
+<div class="roses">
+
+<div class="rose">
+    🌹
+</div>
+
+<div class="rose">
+    🌹
+</div>
+
+<div class="rose">
+    🌹
+</div>
+
+</div>
+
+<!-- =================================================
+     PURPLE BEADED BRACELET
+================================================== -->
+
+<div class="bracelet">
+
+<div class="bracelet-ring"></div>
+
+<div class="bead bead1"></div>
+<div class="bead bead2"></div>
+<div class="bead bead3"></div>
+<div class="bead bead4"></div>
+<div class="bead bead5"></div>
+<div class="bead bead6"></div>
+<div class="bead bead7"></div>
+<div class="bead bead8"></div>
+<div class="bead bead9"></div>
+
+<div class="bracelet-charm">
+    ♡
+</div>
+
+</div>
+
+</div>
+
+<!-- =================================================
+     FRONT WALL
+================================================== -->
+
+<div class="box-front">
+
+<div class="ribbon"></div>
+
+</div>
+
+<div class="hinge"></div>
+
+</div>
+
+<div class="magnetic-gap"></div>
+
+<!-- =================================================
+     LID
+===================================================== -->
+
+<div class="lid">
+
+<div class="lid-outer"></div>
+
+<div class="lid-inner">
+
+<!-- =================================================
+     RANDOM PHOTOS
+================================================== -->
+
+<div class="lid-photos">
+
+<img
+src="photo1.jpg"
+alt="Memory photo 1"
+class="lid-photo photo-one"
+onclick="openPhoto(event, this.src, this.alt)"
+>
+
+<img
+src="photo2.jpg"
+alt="Memory photo 2"
+class="lid-photo photo-two"
+onclick="openPhoto(event, this.src, this.alt)"
+>
+
+<img
+src="photo3.jpg"
+alt="Memory photo 3"
+class="lid-photo photo-three"
+onclick="openPhoto(event, this.src, this.alt)"
+>
+
+</div>
+
+<!-- =================================================
+     TWO SEPARATE BIRTHDAY BANNERS
+================================================== -->
+
+<div class="birthday-banner">
+
+<div class="banner-row happy-row">
+
+<div class="banner-flags">
+
+<div class="banner-letter">H</div>
+<div class="banner-letter">A</div>
+<div class="banner-letter">P</div>
+<div class="banner-letter">P</div>
+<div class="banner-letter">Y</div>
+
+</div>
+
+<div class="banner-heart left">
+    ♡
+</div>
+
+<div class="banner-heart right">
+    ♡
+</div>
+
+</div>
+
+<div class="banner-row birthday-row">
+
+<div class="banner-flags">
+
+<div class="banner-letter">B</div>
+<div class="banner-letter">I</div>
+<div class="banner-letter">R</div>
+<div class="banner-letter">T</div>
+<div class="banner-letter">H</div>
+<div class="banner-letter">D</div>
+<div class="banner-letter">A</div>
+<div class="banner-letter">Y</div>
+
+</div>
+
+<div class="banner-heart left">
+    ♡
+</div>
+
+<div class="banner-heart right">
+    ♡
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="tap-message">
+    👆 Tap the box
+</div>
+
+</div>
+
+</section>
+
+<!-- =================================================
+     REVEAL PANEL
+================================================== -->
+
+<div
+    id="revealPanel"
+    class="reveal-panel"
+>
+
+<div class="reveal-title">
+    Here's your surprise! 💗
+</div>
+
+<div class="items">
+
+<div class="item">
+    💜 1 × Purple Recorder
+</div>
+
+<div class="item">
+    💜 2 × Purple Claw Clips + 2 × Hair Pins
+</div>
+
+<div class="item">
+    🌹 3 × Purple Roses
+</div>
+
+<div class="item">
+    💜 1 × Purple Beaded Bracelet
+</div>
+
+</div>
+
+<div class="small-message">
+    Small things, big happiness... 💜
+</div>
+
+</div>
+
+</div>
+
+</main>
+
+<!-- =====================================================
+     PHOTO LIGHTBOX
+===================================================== -->
+
+<div
+    id="photoLightbox"
+    class="photo-lightbox"
+    onclick="closePhoto(event)"
+>
+
+<button
+class="close-photo"
+onclick="closePhoto()"
+aria-label="Close photo"
+>
+×
+</button>
+
+<img
+id="lightboxImage"
+class="lightbox-image"
+src=""
+alt="Enlarged memory photo"
+>
+
+<div class="photo-hint">
+    Tap outside the photo to close 💗
+</div>
+
+</div>
+
+<!-- =====================================================
+     AUDIO MODAL
+===================================================== -->
+
+<div
+    id="audioModal"
+    class="audio-modal"
+    onclick="closeAudioOutside(event)"
+>
+
+<div
+    class="audio-card"
+    onclick="event.stopPropagation()"
+>
+
+<div class="audio-recorder-icon">
+    🎙️
+</div>
+
+<h2 class="audio-title">
+    A Little Message For You 💜
+</h2>
+
+<p class="audio-subtitle">
+    Press play and listen to my message 🎧
+</p>
+
+<audio
+id="birthdayAudio"
+class="audio-player"
+controls
+preload="metadata"
+>
+
+<source
+    src="birthday-recording.mp3"
+    type="audio/mpeg"
+>
+
+Your browser does not support audio playback.
+
+</audio>
+
+<div
+    id="audioError"
+    class="audio-error"
+>
+
+Audio file not found. Make sure
+<b>birthday-recording.mp3</b>
+is in the same folder.
+
+</div>
+
+<button
+class="audio-close"
+onclick="closeAudio()"
+>
+Close 💗
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+/* =====================================================
+   HEART RAIN
+===================================================== */
+
+const heartContainer =
+    document.getElementById(
+        "heartContainer"
+    );
+
+function createHeart() {
+
+    const heart =
+        document.createElement(
+            "div"
+        );
+
+    heart.className =
+        "heart";
+
+    heart.innerHTML =
+        Math.random() > .5
+            ? "♥"
+            : "♡";
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+    const size =
+        Math.random() * 20 + 12;
+
+    heart.style.fontSize =
+        size + "px";
+
+    const duration =
+        Math.random() * 5 + 5;
+
+    heart.style.animationDuration =
+        duration + "s";
+
+    heart.style.opacity =
+        Math.random() * .5 + .3;
+
+    heartContainer.appendChild(
+        heart
+    );
+
+    setTimeout(
+        () => {
+            heart.remove();
+        },
+        duration * 1000
+    );
+}
+
+setInterval(
+    createHeart,
+    300
+);
+
+
+/* =====================================================
+   OPEN BOX
+===================================================== */
+
+let boxOpened = false;
+
+function openBox() {
+
+    if (boxOpened) {
+        return;
+    }
+
+    boxOpened = true;
+
+    const giftBox =
+        document.getElementById(
+            "giftBox"
+        );
+
+    const revealPanel =
+        document.getElementById(
+            "revealPanel"
+        );
+
+    giftBox.classList.add(
+        "open"
+    );
+
+    setTimeout(
+        () => {
+            revealPanel.classList.add(
+                "show"
+            );
+        },
+        1800
+    );
+}
+
+
+/* =====================================================
+   OPEN PHOTO
+===================================================== */
+
+function openPhoto(
+    event,
+    imageSrc,
+    imageAlt
+) {
+
+    event.stopPropagation();
+
+    const lightbox =
+        document.getElementById(
+            "photoLightbox"
+        );
+
+    const lightboxImage =
+        document.getElementById(
+            "lightboxImage"
+        );
+
+    lightboxImage.src =
+        imageSrc;
+
+    lightboxImage.alt =
+        imageAlt;
+
+    lightbox.classList.add(
+        "show"
+    );
+
+    document.body.style.overflow =
+        "hidden";
+}
+
+
+/* =====================================================
+   CLOSE PHOTO
+===================================================== */
+
+function closePhoto(event) {
+
+    if (
+        event &&
+        event.target &&
+        event.target.id !==
+            "photoLightbox" &&
+        !event.target.classList.contains(
+            "close-photo"
+        )
+    ) {
+        return;
+    }
+
+    const lightbox =
+        document.getElementById(
+            "photoLightbox"
+        );
+
+    lightbox.classList.remove(
+        "show"
+    );
+
+    document.body.style.overflow =
+        "";
+}
+
+
+/* =====================================================
+   OPEN AUDIO
+===================================================== */
+
+function openAudio(event) {
+
+    /*
+       Stop the click from reaching
+       the gift box itself.
+    */
+
+    event.stopPropagation();
+
+    const audioModal =
+        document.getElementById(
+            "audioModal"
+        );
+
+    const audio =
+        document.getElementById(
+            "birthdayAudio"
+        );
+
+    audioModal.classList.add(
+        "show"
+    );
+
+    document.body.style.overflow =
+        "hidden";
+
+    /*
+       The audio does NOT autoplay.
+       The user presses Play manually.
+    */
+
+    audio.currentTime = 0;
+
+    audio.play().catch(
+        () => {
+            /*
+               Browser may block automatic
+               playback. The controls remain
+               available for manual play.
+            */
+        }
+    );
+}
+
+
+/* =====================================================
+   CLOSE AUDIO
+===================================================== */
+
+function closeAudio() {
+
+    const audioModal =
+        document.getElementById(
+            "audioModal"
+        );
+
+    const audio =
+        document.getElementById(
+            "birthdayAudio"
+        );
+
+    audio.pause();
+
+    audio.currentTime = 0;
+
+    audioModal.classList.remove(
+        "show"
+    );
+
+    document.body.style.overflow =
+        "";
+}
+
+
+/* =====================================================
+   CLOSE AUDIO BY CLICKING OUTSIDE
+===================================================== */
+
+function closeAudioOutside(event) {
+
+    if (
+        event.target.id ===
+        "audioModal"
+    ) {
+        closeAudio();
+    }
+}
+
+
+/* =====================================================
+   AUDIO FILE ERROR
+===================================================== */
+
+const birthdayAudio =
+    document.getElementById(
+        "birthdayAudio"
+    );
+
+const audioError =
+    document.getElementById(
+        "audioError"
+    );
+
+birthdayAudio.addEventListener(
+    "error",
+    function() {
+
+        audioError.style.display =
+            "block";
+
+    }
+);
+
+
+/* =====================================================
+   ESC KEY
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            const lightbox =
+                document.getElementById(
+                    "photoLightbox"
+                );
+
+            lightbox.classList.remove(
+                "show"
+            );
+
+            closeAudio();
+
+            document.body.style.overflow =
+                "";
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   BACK BUTTON
+===================================================== */
+
+function goBack() {
+
+    window.location.href =
+        "main.html";
+
+}
+
+</script>
+
+</body>
+
+</html>
